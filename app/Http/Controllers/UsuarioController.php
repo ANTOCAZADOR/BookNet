@@ -7,15 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
-class UsuarioController extends Controller implements HasMiddleware
+class UsuarioController extends Controller
 {
     //Controla el acceso a diferentes partes de la app segun el estado de autenticación del usuario.
-    public static function middleware(): array 
-    {
-        return [
-            new Middleware('auth', except: ['index', 'show']),
-        ];
-    }
     /**
      * Display a listing of the resource.
      */
@@ -30,7 +24,7 @@ class UsuarioController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        return view('usuarios.create');
+        return view('usuarios.create-usuario');
         //
     }
 
@@ -39,38 +33,50 @@ class UsuarioController extends Controller implements HasMiddleware
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => ['required', 'max:255'],
+            'email'  => ['required', 'max:255'],
+            'password' => ['required', 'max:100'], 
+        ]); 
+
+        $usuario = Usuario::create($request->all());
+        return redirect('/usuario');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Usuario $usuario)
     {
-        //
+        return view('usuarios.show-usuario', compact('usuario'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Usuario $usuario)
     {
-        //
+        return view('usuarios.edit-usuario', compact('usuario')); 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Usuario $usuario)
     {
-        //
+        $usuario->update($request->all()); 
+
+        return redirect('/usuario'); 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Usuario $usuario)
     {
-        //
+        $usuario->delete(); 
+
+        return redirect('/usuario'); 
     }
+    
 }

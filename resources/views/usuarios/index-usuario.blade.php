@@ -19,7 +19,10 @@
             <th>Nombre</th>
             <th>Email</th>
             <th>Rol</th>
-            <th>Acciones</th>
+            <th>Password</th>
+            <th>Creado</th>
+            <th>Modificación</th>
+            <th>Edición usuario</th>
         </tr>
     </thead>
     <tbody>
@@ -33,6 +36,7 @@
             </td>
             <td>{{ $usuario->email }}</td>
             <td>{{ $usuario->rol }}</td>
+            <td>{{ $usuario->password }}</td>
             <td>{{ $usuario->created_at }}</td>
             <td>{{ $usuario->updated_at }}</td>
             <td>
