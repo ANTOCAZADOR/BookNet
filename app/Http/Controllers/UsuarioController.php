@@ -13,6 +13,13 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public static function middleware(): array
+    {
+        return [
+            new Middleware('auth', except: ['index', 'show']),
+        ];
+    }
+    
     public function index()
     {
         $usuarios = Usuario::all();
