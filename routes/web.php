@@ -10,8 +10,15 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
-    return view('pagina_principal');
+    return view('index');
 });
+
+Route::get('/usuarios', function () {
+    return view('index');
+});
+/*Route::get('/', function () {
+    return view('index');
+});*/
 
 Route::resource( 'usuario', UsuarioController::class)
     ->parameters(['usuario' => 'usuario'])
