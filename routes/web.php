@@ -13,6 +13,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+//Pagina principal dirige a tablas que se encuentran el el menu
 Route::get('/usuarios', function () {
     return view('index');
 });
