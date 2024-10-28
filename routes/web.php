@@ -14,15 +14,15 @@ Route::get('/', function () {
 });
 
 //Pagina principal dirige a tablas que se encuentran el el menu
-Route::get('/usuarios', function () {
+Route::get('/users', function () {
     return view('index');
 });
 /*Route::get('/', function () {
     return view('index');
 });*/
 
-Route::resource( 'usuario', UsuarioController::class)
-    ->parameters(['usuario' => 'usuario'])
+Route::resource( 'user', UsuarioController::class)
+    ->parameters(['user' => 'user'])
     ->middleware('auth');
 
 //Route::resource('create-usuario', UsuarioController::class)->parameters(['usuario' => 'usuario']);

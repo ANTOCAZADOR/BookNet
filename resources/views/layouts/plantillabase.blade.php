@@ -19,7 +19,7 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">BookNet</div>
                 <div class="list-group list-group-flush">
-                <a href="{{ route('usuario.index') }}" class="list-group-item list-group-item-action list-group-item-light p-3">BD Users</a>
+                <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action list-group-item-light p-3">BD Users</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>

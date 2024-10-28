@@ -4,12 +4,12 @@
     <title>Crear usuario</title>
 
     <h1>Create User</h1>
-    <form action="{{ route('usuario.store') }}"method="POST">
+    <form action="{{ route('user.store') }}"method="POST">
         @csrf
 
         <div class="mb-2">
-        <label for= "nombre" class="form-label">Name:</label><br>
-        <input type="text" name="nombre" class="form-control" tabindex="1" value="{{ old('nombre')}}"><br>
+        <label for= "name" class="form-label">Name:</label><br>
+        <input type="text" name="name" class="form-control" tabindex="1" value="{{ old('name')}}"><br>
         </div>
 
         <div class="mb-2">

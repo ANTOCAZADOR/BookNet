@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -22,8 +22,8 @@ class UsuarioController extends Controller
     
     public function index()
     {
-        $usuarios = Usuario::all();
-        return view('usuarios.index-usuario', compact('usuarios'));
+        $users = User::all();
+        return view('users.index-user', compact('users'));
     }
 
     /**
@@ -31,7 +31,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create-usuario');
+        return view('users.create-user');
         //
     }
 
@@ -41,49 +41,52 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => ['required', 'max:255'],
+            'name' => ['required', 'max:255'],
             'email'  => ['required', 'max:255'],
             'password' => ['required', 'max:100'], 
         ]); 
 
-        $usuario = Usuario::create($request->all());
-        return redirect('/usuario');
+        //Hash de la contraseña antes de crear el usuario
+        //$request['password'] = bcrypt($request['password']);
+
+        $user = User::create($request->all());
+        return redirect('/user');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Usuario $usuario)
+    public function show(User $user)
     {
-        return view('usuarios.show-usuario', compact('usuario'));
+        return view('users.show-user', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
+    public function edit(User $user)
     {
-        return view('usuarios.edit-usuario', compact('usuario')); 
+        return view('users.edit-user', compact('user')); 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, User $user)
     {
-        $usuario->update($request->all()); 
+        $user->update($request->all()); 
 
-        return redirect('/usuario'); 
+        return redirect('/user'); 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(User $user)
     {
-        $usuario->delete(); 
+        $user->delete(); 
 
-        return redirect('/usuario'); 
+        return redirect('/user'); 
     }
     
 }
