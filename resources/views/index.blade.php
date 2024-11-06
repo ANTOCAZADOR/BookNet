@@ -69,7 +69,7 @@
                         <code>#page-content-wrapper</code>
                         . The top navbar is optional, and just for demonstration. Just create an element with the
                         <code>#sidebarToggle</code>
-                        ID which will toggle the menu when clicked.
+                        ID which will toggle the menu when clicked. 
                     </p>
                 </div>
             </div>
@@ -80,3 +80,4 @@
         <script src="{{asset('assets/js/scripts.js')}}"></script>
     </body>
 </html>
+<!--hola-->
